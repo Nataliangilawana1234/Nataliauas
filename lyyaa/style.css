@@ -1,0 +1,465 @@
+:root {
+    --primary-bg-start: #6a5acd; /* Ungu gelap */
+    --primary-bg-end: #ff69b4;   /* Pink cerah */
+    --button-bg-default: #ffb6c1; /* Pink muda */
+    --button-bg-hover: #ff88a8; /* Pink sedikit lebih gelap */
+    --button-bg-active: #8a2be2; /* Biru ungu (Violet) */
+    --card-bg: #f8f8f8; /* Hampir putih untuk card */
+    --info-box-bg: #ffb6c1; /* Pink muda */
+    --section-title-bg: #8a2be2; /* Biru ungu (Violet) */
+    --text-color-dark: #333;
+    --text-color-light: #fff;
+    --border-color: #ddd;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif; /* Ganti font menjadi Times New Roman */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, var(--primary-bg-start), var(--primary-bg-end)); /* Gradasi warna */
+    color: var(--text-color-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Mencegah scroll horizontal dari animasi */
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+/* Navigasi */
+.navbar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--button-bg-default);
+    color: var(--text-color-light);
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover {
+    background-color: var(--button-bg-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button.active {
+    background-color: var(--button-bg-active);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Wrapper Konten Utama */
+.content-wrapper {
+    width: 90%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Bagian Konten */
+.content-section {
+    display: none; /* Sembunyikan semua secara default */
+    width: 100%;
+    animation: fadeIn 0.8s ease-out; /* Animasi saat muncul */
+}
+
+.content-section.active {
+    display: block; /* Tampilkan bagian yang aktif */
+}
+
+/* Card Umum */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Card Utama (Portofolio & Hai) */
+.main-card {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Penting untuk tulisan bergerak */
+}
+
+/* Portofolio Card */
+.portofolio-card h1 {
+    font-size: 3em;
+    color: var(--text-color-dark);
+    margin-bottom: 10px;
+}
+
+.portofolio-card h2 {
+    font-size: 1.8em;
+    color: #555;
+    margin-top: 0;
+}
+
+.info-box {
+    background-color: var(--info-box-bg);
+    color: var(--text-color-light);
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin-top: 30px;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Hai Card */
+.profile-container {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--primary-bg-start); /* Border ungu */
+    box-shadow: 0 0 0 7px var(--primary-bg-end), /* Shadow pink */
+                0 0 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-me-box {
+    background-color: var(--info-box-bg);
+    color: var(--text-color-light);
+    padding: 20px 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+}
+
+/* Bagian Pendidikan & Pengalaman */
+.section-title-box {
+    background-color: var(--section-title-bg);
+    color: var(--text-color-light);
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.3em;
+    text-align: center;
+    margin: 0 auto 40px auto; /* Tengah secara horizontal */
+    width: fit-content;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
+}
+
+.grid-item {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.grid-item .text-caption {
+    background-color: var(--info-box-bg);
+    color: var(--text-color-light);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 15px; /* Margin samping */
+    font-size: 0.95em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 30px); /* Sesuaikan lebar */
+    box-sizing: border-box;
+}
+
+.grid-item .text-area-box {
+    background: linear-gradient(to bottom right, #afeeee, #add8e6); /* Cyan muda ke Biru muda */
+    color: var(--text-color-dark);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 20px;
+    height: calc(100% - 40px); /* Sesuaikan tinggi */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+    line-height: 1.5;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* Bayangan dalam */
+    box-sizing: border-box;
+}
+
+
+/* Bagian Kontak */
+.contact-links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-link {
+    background-color: var(--card-bg);
+    color: var(--text-color-dark);
+    padding: 15px 25px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+}
+
+.contact-link:hover {
+    background-color: var(--info-box-bg);
+    color: var(--text-color-light);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-link .icon {
+    font-size: 1.5em; /* Ukuran ikon */
+}
+
+
+/* ==================================== */
+/* ANIMASI */
+/* ==================================== */
+
+/* Animasi Fade In (untuk setiap bagian saat muncul) */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animasi Pulse (untuk kotak info di Portofolio) */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+.animated-pulse {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* Animasi Pop (untuk foto profil) */
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    80% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+.animated-pop {
+    animation: pop 0.6s ease-out;
+}
+
+/* Animasi Slide Down (untuk judul section) */
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.animated-slide-down {
+    animation: slideDown 0.7s ease-out;
+}
+
+/* Animasi Slide In (untuk link kontak) */
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+.animated-slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+}
+.animated-slide-in-right {
+    animation: slideInRight 0.8s ease-out 0.2s; /* Delay untuk yang kedua */
+}
+
+
+/* Tulisan Bergerak (Marquee-like effect) */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.animated-text {
+    overflow: hidden; /* Penting agar teks tidak terlihat sebelum bergerak masuk */
+    white-space: nowrap; /* Pastikan teks tidak patah baris */
+    display: inline-block; /* Untuk menerapkan transformasi */
+    position: relative;
+    animation: marquee 15s linear infinite; /* Sesuaikan durasi untuk kecepatan */
+}
+
+/* Delay animasi untuk grid item */
+.animated-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0; /* Sembunyikan secara default sebelum animasi */
+}
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+
+/* ==================================== */
+/* RESPONSIVE DESIGN */
+/* ==================================== */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 8px 15px;
+    }
+
+    .nav-button {
+        padding: 10px 18px;
+        font-size: 0.9em;
+        flex-grow: 1;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .portofolio-card h1 {
+        font-size: 2.2em;
+    }
+
+    .portofolio-card h2 {
+        font-size: 1.4em;
+    }
+
+    .info-box, .about-me-box {
+        padding: 15px 20px;
+        font-size: 1em;
+    }
+
+    .profile-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .section-title-box {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; /* Satu kolom untuk layar kecil */
+        gap: 20px;
+    }
+
+    .grid-item img {
+        height: 180px;
+    }
+
+    .grid-item .text-caption, .grid-item .text-area-box {
+        font-size: 0.9em;
+        padding: 15px;
+    }
+
+    .contact-link {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        gap: 8px;
+        padding: 5px 10px;
+    }
+
+    .nav-button {
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+
+    .card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .portofolio-card h1 {
+        font-size: 1.8em;
+    }
+
+    .portofolio-card h2 {
+        font-size: 1.2em;
+    }
+
+    .info-box, .about-me-box {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+
+    .profile-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .section-title-box {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .grid-item img {
+        height: 150px;
+    }
+}
