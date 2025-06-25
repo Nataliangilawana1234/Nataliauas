@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Natalia D Ngilawana</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <header>
+        <nav class="navbar">
+            <button class="nav-button active" data-target="portofolio">Portofolio</button>
+            <button class="nav-button" data-target="hai">Hai</button>
+            <button class="nav-button" data-target="pendidikan">Pendidikan</button>
+            <button class="nav-button" data-target="pengalaman">Pengalaman</button>
+            <button class="nav-button" data-target="kontak">Kontak</button>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <section id="portofolio" class="content-section active">
+            <div class="card main-card portofolio-card">
+                <h1>Portofolio</h1>
+                <h2 class="animated-text">(Uas Pemrograman Web)</h2>
+                <div class="info-box animated-pulse">
+                    <p>Nama : Natalia D Ngilawana</p>
+                    <p>NPM : 12155201230132</p>
+                    <p>Kelas Pemrograman web ......</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="hai" class="content-section">
+            <div class="card main-card hai-card">
+                <div class="profile-container animated-pop">
+                    <img src="C:\Users\ACER\Music\lyyaa\profil.jpg" alt="Foto Profil" class="profile-pic">
+                </div>
+                <div class="about-me-box">
+                    <p>Hai, perkenalkan Natalia Dortjie Ngilawana yang biasa dipanggil Nata. Saat ini saya adalah seorang mahasiswa di Universitas Kristen Indonesia Maluku. Saya sangat suka membaca buku, terutama novel. Di rumah, saya sering menghabiskan waktu dengan membaca dan menyelesaikan tugas kuliah. Selain itu, di rumah saya suka memasak.
+                         Saya suka mencoba resep baru dan bereksperimen dengan bahan-bahan yang berbeda.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pendidikan" class="content-section">
+            <div class="section-title-box animated-slide-down">Pendidikan</div>
+            <div class="grid-container">
+                <div class="grid-item animated-fade-in">
+                    <img src="C:\Users\ACER\Music\lyyaa\foto SD.jpg" alt="Pendidikan 1">
+                    <div class="text-caption">Sekolah Dasar Saya Bersekolah dasar di SD KRISTEN BATUPUTIH. Kecamatan.Wermaktian, Kabupaten Kepulauan Tanimbar</div>
+                </div>
+                <div class="grid-item animated-fade-in delay-1">
+                    <img src="C:\Users\ACER\Music\lyyaa\Foto SMP.jpg" alt="Pendidikan 2">
+                    <div class="text-caption">Sekolah Menengah Pertama Saya Bersekolah di SMP KRISTEN BATUPUTIH. Kecamatan.Wermaktian, Kabupaten Kepulauan Tanimbar</div>
+                </div>
+                <div class="grid-item animated-fade-in delay-2">
+                    <img src="C:\Users\ACER\Music\lyyaa\Foto SMA.jpg" alt="Pendidikan 3">
+                    <div class="text-caption">Sekolah Menengah Atas Saya Bersekolah di SMA Negeri Siwalima Ambon. WAINAPU, Waiheru, Kecamatan. Baguala, Kota Ambon Prov. Maluku</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pengalaman" class="content-section">
+            <div class="section-title-box animated-slide-down">Pengalaman</div>
+            <div class="grid-container">
+                <div class="grid-item animated-fade-in">
+                    <div class="text-area-box">
+                        <p>Saya pernah Mengikuti pelatihan IT Desain Grafis, Digital Marketing, Foto Editing. yang di selengarakan oleh PT.(PP). MALUCCAS CREATIVE DEVELOPMENT TEAM. Saya salah satu dari peserta mendapatkan 3 serifikat yang diberikan langsung oleh Penyelenggara Pelatihan IT yaitu kk Viany Juniaty Huwae, S.KOM</p>
+                    </div>
+                </div>
+                <div class="grid-item animated-fade-in delay-1">
+                    <img src="C:\Users\ACER\Music\lyyaa\Natalia1.jpg" alt="Pengalaman 1">
+                </div>
+                <div class="grid-item animated-fade-in delay-2">
+                    <img src="C:\Users\ACER\Music\lyyaa\Natalia3.jpg" alt="Pengalaman 2">
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="content-section">
+            <div class="section-title-box animated-slide-down">Kontak</div>
+            <div class="contact-links-container">
+                <a href="mailto:halo@situssupercanggih.co.id" class="contact-link animated-slide-in-left">
+                    <span class="icon"></span> INSTAGRAM  @Lyaa2612
+                </a>
+                <a href="mailto:halo@situssupercanggih.co.id" class="contact-link animated-slide-in-right">
+                    <span class="icon"></span> TIKTOK @lyaa
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = document.querySelectorAll('.nav-button');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.target;
+
+                    // Hapus kelas 'active' dari semua tombol dan bagian
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    // Tambahkan kelas 'active' ke tombol yang diklik
+                    button.classList.add('active');
+
+                    // Tampilkan bagian yang sesuai
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
